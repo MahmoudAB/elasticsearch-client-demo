@@ -21,17 +21,12 @@ fun main(args: Array<String>) {
 class DemoElasticSearch(private val demoElasticSearchRepository: DemoElasticSearchRepository){
 
 	@PostConstruct
-	fun tests(){
-
+	fun letsTestItOut(){
 		val customer = Customer(UUID.randomUUID(), "Buddy Bob")
 		demoElasticSearchRepository.save(customer)
-
 		val ourBestCustomer = demoElasticSearchRepository.findByName(customer.name)
 		println("OUR BEST CUSTOMER ==> ${ourBestCustomer.name}")
-
-
 	}
-
 }
 
 @Document(indexName = "customer")
